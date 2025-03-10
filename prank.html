@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>😂 صفحة مسكونة يا حمودي!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: white;
+            transition: background-color 0.5s;
+        }
+        #text {
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+        .emoji {
+            position: absolute;
+            font-size: 50px;
+        }
+    </style>
+    <script>
+        let messages = [
+            "🔥 حمودي، هل تشعر بهذا؟!",
+            "😵 حمودي، هناك شيء غريب هنا!",
+            "😂 هذه الصفحة تكتب من تلقاء نفسها!",
+            "👻 هل هذه صفحة مسكونة؟!",
+            "😈 انتبه، هناك شيء غير طبيعي يحدث!"
+        ];
+        let index = 0;
+
+        function typeText() {
+            let textElement = document.getElementById("text");
+            textElement.innerHTML = messages[index];
+            index = (index + 1) % messages.length;
+        }
+
+        function changeBackground() {
+            document.body.style.backgroundColor = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+        }
+
+        function showEmoji() {
+            let emojiList = ["😂", "🤣", "😜", "😱", "👽", "🤖", "🔥", "💀"];
+            let emoji = document.createElement("div");
+            emoji.innerText = emojiList[Math.floor(Math.random() * emojiList.length)];
+            emoji.className = "emoji";
+            emoji.style.top = Math.random() * window.innerHeight + "px";
+            emoji.style.left = Math.random() * window.innerWidth + "px";
+            document.body.appendChild(emoji);
+            setTimeout(() => { emoji.remove(); }, 3000);
+        }
+
+        setInterval(typeText, 3000);
+        setInterval(changeBackground, 2000);
+        setInterval(showEmoji, 5000);
+
+        // بعد 15 ثانية، تظهر رسالة توضيحية
+        setTimeout(() => {
+            alert("😂 لا تخاف، هذا مزحة!");
+        }, 15000);
+    </script>
+</head>
+<body>
+    <h1 id="text">👀 حمودي، اضغط هنا لرؤية شيء غريب!</h1>
+</body>
+</html>
